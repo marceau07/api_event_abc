@@ -16,7 +16,7 @@ class CenterController extends AbstractController
     {
         return $this->json([
             'success' => true,
-            'message' => "Récupération de la liste des centres d'ABC Formation",
+            'message' => "Récupération de la liste des centres " . ($_ENV['DATABASE_NAME'] == 'api_event_abc' ? "d'ABC Formation" : "de l'ADRAR !"),
             'centers' => json_decode($serializer->serialize($centerRepository->findAll(), 'json'), true),
         ]);
     }

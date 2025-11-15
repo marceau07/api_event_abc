@@ -25,7 +25,7 @@ class CandidateController extends AbstractController
   {
     return $this->json([
       'success' => true,
-      'message' => "Récupération de la liste des centres d'ABC Formation",
+      'message' => "Récupération de la liste des candidats " . ($_ENV['DATABASE_NAME'] == 'api_event_abc' ? "d'ABC Formation" : "de la JPO"),
       'centers' => json_decode($serializer->serialize($candidateRepository->findAll(), 'json'), true),
     ]);
   }
@@ -93,7 +93,7 @@ class CandidateController extends AbstractController
             ->bcc('marceau0707@gmail.com')
             ->replyTo('contact@marceau-rodrigues.fr')
             ->priority(Email::PRIORITY_HIGH)
-            ->subject('[Rallye des Métiers] Confirmez votre email pour finaliser vos missions')
+            ->subject($_ENV['DATABASE_NAME'] == 'api_event_abc' ? '[Rallye des Métiers] Confirmez votre email pour finaliser vos missions' : '[JPO] Confirmez votre email pour finaliser vos missions')
             ->text('Sending emails is fun again!')
             ->html('<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -233,7 +233,7 @@ class CandidateController extends AbstractController
                           <tr>
                             <td style="padding-right: 0px;padding-left: 0px;" align="center">
                               
-                              <img align="center" border="0" src="https://docs.marceau-rodrigues.fr/assets/images/logo_2.png" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 223px;" width="223"/>
+                              <img align="center" border="0" src="https://docs.adrar.dev/assets/images/logo_2.png" alt="Logo" title="Logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 223px;" width="223"/>
                               
                             </td>
                           </tr>
@@ -426,7 +426,7 @@ class CandidateController extends AbstractController
                             <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 21px">
                               <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
                                 <a href="https://github.com/MarceauAdrar?tab=repositories" title="GitHub" target="_blank">
-                                  <img src="https://docs.marceau-rodrigues.fr/assets/images/github.png" alt="GitHub" title="GitHub" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                  <img src="https://docs.adrar.dev/assets/images/github.png" alt="GitHub" title="GitHub" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                 </a>
                               </td></tr>
                             </tbody></table>
@@ -436,7 +436,7 @@ class CandidateController extends AbstractController
                             <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
                               <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
                                 <a href="https://www.linkedin.com/school/adrarnumerique/posts/?feedView=all" title="LinkedIn" target="_blank">
-                                  <img src="https://docs.marceau-rodrigues.fr/assets/images/linkedin.png" alt="LinkedIn" title="LinkedIn" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                                  <img src="https://docs.adrar.dev/assets/images/linkedin.png" alt="LinkedIn" title="LinkedIn" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                 </a>
                               </td></tr>
                             </tbody></table>
